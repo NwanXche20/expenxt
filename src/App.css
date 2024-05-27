@@ -1,38 +1,235 @@
-.App {
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+:root {
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --primary: linear-gradient(to right, #de6161 0%, #2657eb 51%, #de6161 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 5px 15px;
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+}
+
+.container {
+  margin: 0px auto;
+  max-width: 400px;
+}
+
+h1 {
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+h2 {
+  width: fit-content;
+  font-size: 30px;
+  margin-bottom: 0px;
+  background: var(--primary);
+  background-size: 200% auto;
+  transition: 0.5s;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+h3 {
+  border-bottom: 1px solid #bbb;
+  padding-bottom: 10px;
+  margin: 40px 0 10px;
+}
+
+h4 {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.header {
+  margin: 0 0 30px;
+}
+
+.balance-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.addTransaction-container {
+  box-shadow: var(--box-shadow);
+  padding: 10px;
+  margin: 40px 0 10px;
+}
+
+.addTransaction-heading {
+  margin: 0px;
+}
+
+.inc-exp-container {
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.inc-exp-container > div {
+  flex: 1;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.inc-exp-container > div:first-of-type {
+  border-right: 1px solid #dedede;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.money {
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin: 5px 0;
+  font-weight: 600;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.money.plus {
+  color: seagreen;
+}
+
+.money.minus {
+  color: #c0392b;
+}
+
+label {
+  display: inline-block;
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"] {
+  border: 1px solid #dedede;
+  border-radius: 2px;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+  text-transform: capitalize;
+}
+
+input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.radioContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.option-radioContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  gap: 0.3rem;
 }
 
-.App-link {
-  color: #61dafb;
+.btn {
+  cursor: pointer;
+  background-image: var(--primary);
+  background-size: 200% auto;
+  transition: 0.5s;
+  box-shadow: var(--box-shadow);
+  border-radius: 4px;
+  color: #fff;
+  border: 0;
+  display: block;
+  font-size: 16px;
+  margin: 10px 0 30px;
+  padding: 10px;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.btn:hover,
+h2:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn:focus,
+.delete-btn:focus {
+  outline: 0;
+}
+
+.add-btn {
+  margin: 0px;
+  width: auto;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+.list {
+  list-style-type: none;
+  padding-left: 25px;
+  margin-bottom: 40px;
+
+  display: grid;
+  gap: 10px;
+}
+
+.list li {
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 15px;
+}
+
+.list li.plus {
+  border-right: 5px solid rgb(36, 150, 85);
+}
+
+.list li.minus {
+  border-right: 5px solid #c0392b;
+}
+
+.delete-btn {
+  cursor: pointer;
+  background-color: #e74c3c;
+  border: 0;
+  color: #fff;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 2px 5px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-100%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.list li:hover .delete-btn {
+  opacity: 1;
+}
+
+@media (min-width: 450px) {
+  .list {
+    padding: 0;
   }
 }
