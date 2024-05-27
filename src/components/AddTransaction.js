@@ -13,6 +13,7 @@ export const AddTransaction = () => {
 
   useEffect(() => {
     setValues({ ...values, text: "", amount: "", category: null });
+    setCheckedOption({ isChecked: "" });
   }, [isClicked]);
 
   const handleChange = (prop) => (event) => {
@@ -31,6 +32,7 @@ export const AddTransaction = () => {
 
     addTransaction(newTransaction);
     setValues({ ...values, text: "", amount: "", category: null });
+    setCheckedOption({ isChecked: "" });
     openAddTab(!isClicked);
   };
 
