@@ -31,6 +31,7 @@ export const AddTransaction = () => {
 
     addTransaction(newTransaction);
     setValues({ ...values, text: "", amount: "", category: null });
+    openAddTab(!isClicked);
   };
 
   if (!isClicked) {
