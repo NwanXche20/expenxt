@@ -1,13 +1,15 @@
 import React, { createContext, useReducer } from "react";
 import AppReducer from "./AppReducer";
 
+// demo transactions: [
+//   { id: 1, text: "Flower", amount: 200, category: "Expense" },
+//   { id: 2, text: "Groceries", amount: 18000, category: "Expense" },
+//   { id: 3, text: "Salary", amount: 50000, category: "Income" },
+// ],
+
 // Initial State
 const initialState = {
-  transactions: [
-    { id: 1, text: "Flower", amount: 200, category: "Expense" },
-    { id: 2, text: "Groceries", amount: 18000, category: "Expense" },
-    { id: 3, text: "Salary", amount: 50000, category: "Income" },
-  ],
+  transactions: [],
   isClicked: false,
 };
 
