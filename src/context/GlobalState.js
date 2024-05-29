@@ -13,12 +13,25 @@ const initialState = {
   isClicked: false,
 };
 
+// Using localStorage to house our data
+const storedInitialStates = localStorage.getItem("initials");
+
+let globalInitials;
+
+if (storedInitialStates) {
+  globalInitials = JSON.parse(storedInitialStates);
+} else {
+  localStorage.setItem("initials", JSON.stringify(initialState));
+
+  globalInitials = JSON.parse(localStorage.getItem("initials"));
+}
+
 // Create Context
-export const GlobalContext = createContext(initialState);
+export const GlobalContext = createContext(globalInitials);
 
 // Provider component
 export const GlobalProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(AppReducer, initialState);
+  const [state, dispatch] = useReducer(AppReducer, globalInitials);
 
   function deleteTransaction(id) {
     dispatch({

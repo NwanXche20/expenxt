@@ -20,6 +20,11 @@ export const AddTransaction = () => {
     setValues({ ...values, [prop]: event.target.value });
   };
 
+  const stopNumberInputScroll = (e) => {
+    e.target.blur();
+    e.stopPropagation();
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -45,28 +50,31 @@ export const AddTransaction = () => {
       <h3 className="addTransaction-heading">Add new transaction</h3>
       <form onSubmit={onSubmit}>
         <div className="form-control">
-          <label htmlFor="text">Text</label>
+          <label htmlFor="title">Title</label>
           <input
             required
+            id="title"
             type="text"
             value={values.text}
             onChange={handleChange("text")}
-            placeholder="Enter text..."
+            placeholder="Enter title of transaction..."
           />
         </div>
         <div className="form-control">
           <label htmlFor="amount">Amount</label>
           <input
+            id="amount"
             required
             type="number"
             min="0"
             value={values.amount}
             onChange={handleChange("amount")}
+            onWheel={stopNumberInputScroll}
             placeholder="Enter amount..."
           />
         </div>
         <div className="form-control">
-          <label>Select Category</label>
+          <p>Select Category</p>
 
           <div className="radioContainer">
             <div className="option-radioContainer">
