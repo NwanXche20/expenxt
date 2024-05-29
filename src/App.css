@@ -126,6 +126,19 @@ input[type="number"] {
   text-transform: capitalize;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  appearance: none;
+  -moz-appearance: textfield;
+}
+
 input[type="radio"] {
   width: 20px;
   height: 20px;
